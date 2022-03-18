@@ -88,7 +88,7 @@ processUserInput(greeting);
 
 **To understand cb_kwargs:** *"cb_kwargs is not a python reserved keyword or builtin function, so it can mean anything depending on context.*
 
-*However, I believe that the typical use is as a dictionary of keyword, value pairs that is meant to be passed to a callback function at some time, for example:*
+*The typical use is as a dictionary of keyword, value pairs that is meant to be passed to a callback function at some time, for example:*
 ```python
 cb_kwargs = {'timeout':22, 'verbose':False}
 ```
