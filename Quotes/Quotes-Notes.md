@@ -3,7 +3,6 @@
 # Quotes Notes
 This note will show the notes I have taken for the module 2 of the course "Curso Scrapy" dictated in https://platzi.com/cursos/scrapy/.
 
-:shipit:
 
 # Scrapy Shell
 To open the scrapy terminal use the command
@@ -28,7 +27,8 @@ scrapy shell 'http://quotes.toscrape.com/page/1'
 ```bash
 >>> dir(request)
 ```
-# Creating the project
+# Running Scrapy
+*Scrapy is an asynchronous framework. Asynchronous programming is when an operation is performed on the database, but the software is able to do other things during this process. Then, when the response arrives, your software can process it.*
 
 After having created the repository, the .gitignore file and the virtual environment, (pip must be updated) we install the dependencies pip3 install scrapy autopep8 
 ```
@@ -52,15 +52,14 @@ Files to know
 
 - **setings:** general settings
 
+The spiders are run with
+
 ```
- 
- ```
+scrapy crawl quotes
+```
+where quotes is the value of the variable name in quotes.py 
 
-
-
-
-
-
+# quotes.py by Dissection
 
 ```python
 top = getattr(self,'top', None)
@@ -68,11 +67,36 @@ top = getattr(self,'top', None)
             top = int(top)
             topTags = topTags[:top]
 ```
-El codigo anterior funciona de la siguiente forma, si existe dentro de la ejecución de parse() un atributo de nombre top se guardara en la variable top. Si no se envía el atributo en la ejecución se guardara None en top. 
+The above code works as follows, if there is within the execution of parse() an attribute named "top" it will be stored in the variable top. If the attribute is not sent in the execution, None will be stored in top. 
 
+**To understand callback:** *"A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action."* by https://developer.mozilla.org/en-US/docs/Glossary/Callback_function
 
-    1. To understand callback: A callback function is a function passed into another function as an argument, 
-    which is then invoked inside the outer function to complete some kind of routine or action.
-    
-    2.To understand cb_kwargs: https://stackoverflow.com/questions/30695803/what-does-cb-in-cb-kwargs-stand-for
-    """
+```javascript
+function greeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(greeting);
+```
+
+**To understand cb_kwargs:** *"cb_kwargs is not a python reserved keyword or builtin function, so it can mean anything depending on context.*
+
+*However, I believe that the typical use is as a dictionary of keyword, value pairs that is meant to be passed to a callback function at some time, for example:*
+```python
+cb_kwargs = {'timeout':22, 'verbose':False}
+```
+*Then some function callback might later be called as*
+```python
+callback(**cb_kwargs)
+```
+*which for this particular dictionary would be equivalent to calling it as:*
+```python
+callback(timeout=22, verbose=False)
+```
+ https://stackoverflow.com/questions/30695803/what-does-cb-in-cb-kwargs-stand-for
+
