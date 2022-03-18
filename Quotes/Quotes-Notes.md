@@ -4,7 +4,7 @@
 This note will show the notes I have taken for the module 2 of the course "Curso Scrapy" dictated in https://platzi.com/cursos/scrapy/.
 
 
-# Scrapy Shell
+# <span style="color:purple">Scrapy Shell<span/>
 To open the scrapy terminal use the command
 
 ```bash
@@ -28,7 +28,9 @@ scrapy shell 'http://quotes.toscrape.com/page/1'
 >>> dir(request)
 ```
 # Running Scrapy
-*Scrapy is an asynchronous framework. Asynchronous programming is when an operation is performed on the database, but the software is able to do other things during this process. Then, when the response arrives, your software can process it.*
+
+
+*<span style="color:purple">Scrapy is an asynchronous framework. Asynchronous programming is when an operation is performed on the database, but the software is able to do other things during this process. Then, when the response arrives, your software can process it.</span>*
 
 After having created the repository, the .gitignore file and the virtual environment, (pip must be updated) we install the dependencies pip3 install scrapy autopep8 
 ```
